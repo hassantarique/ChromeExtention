@@ -21,6 +21,6 @@
 			"128": "images/get_started128.png"
 		}
 	},
-	"permissions": [ "storage", "declarativeContent" ],
+	"permissions": [ "storage", "declarativeContent", "activeTab" ],
 	"version": "1.0"
 }
