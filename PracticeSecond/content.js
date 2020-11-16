@@ -1,7 +1,12 @@
 console.log("Chrome extension ready to go");
 
-let elements = document.getElementsByTagName('p');
+chrome.runtime.onMessage.addListener(gotMessage);
+function gotMessage(request, sender, sendResponse) {
+	if (request.txt === "hello") {
+		let elements = document.getElementsByTagName('p');
 
-for (elt of elements) {
-	elt.style.backgroundColor = "red";
+		for (elt of elements) {
+			elt.style.backgroundColor = "red";
+		};
+	};
 };
