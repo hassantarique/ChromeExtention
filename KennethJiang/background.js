@@ -1,9 +1,14 @@
 chrome.browserAction.onClicked.addListener(buttonClicked);
 
 function buttonClicked(tab) {
-	let pattern = /.*stackoverflow.com\/.*/;
+	let matchPattern = /.*stackoverflow.com\/.*/;
+	let destinationDomain = "def.com";
 
-	if (pattern.test(tab.url)) {
-		chrome.tabs.create({ url: tab.url });
+	if (matchPattern.test(tab.url)) {
+		let res = tab.url.split("/");
+		if ((res) && (res.length > 2)) {
+			res[2] = destinationDomain;
+			chrome.tabs.create({ url: res.join("/") });
+		}
 	}
 };
