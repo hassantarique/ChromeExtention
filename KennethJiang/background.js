@@ -1,5 +1,9 @@
 chrome.browserAction.onClicked.addListener(buttonClicked);
 
 function buttonClicked(tab) {
-	console.log(location.href);
+	let pattern = /.*stackoverflow.com\/.*/;
+
+	if (pattern.test(tab.url)) {
+		chrome.tabs.create({ url: tab.url });
+	}
 };
